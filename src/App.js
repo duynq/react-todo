@@ -11,6 +11,7 @@ class App extends Component {
       currentItem: { text: '', key: '' },
     }
   }
+  inputElement = React.createRef();
 
   handleInput = e => {
     const itemText = e.target.value;
@@ -36,7 +37,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TodoList addItem={this.addItem} />
+        <TodoList
+          addItem={this.addItem}
+          inputElement={this.inputElement}
+          handleInput={this.handleInput}
+          currentItem={this.state.currentItem}
+        />
       </div>
     );
   }
